@@ -187,3 +187,33 @@ public void reverse() {
 	}
   
   
+  12. Printing or displaying the all the list of linkedlist...
+  
+  public void printList() {
+		if(head == null) {
+			System.out.println("There is nothing to print...");
+			return;
+		}
+		Node currNode = head;
+		while(currNode != null) {
+			System.out.println(currNode.data);
+			currNode = currNode.next;
+		}
+	}
+	
+13. Here comes the main method...... 	
+	public static void main(String []args) {
+		LL_Implementation list = new LL_Implementation();
+		list.addNode(0,"Sidhartha");
+		list.addNode(1,"Dipika");
+		list.addNode(2,"Sidhartha");
+//		System.out.println(list.getSize());
+//		if(list.isPallindrome()) {
+//			System.out.println("The list is a pallindrome...");
+//		}else {
+//			System.out.println("The list is not a pallindrome...");
+//		}
+		System.out.println(list.getMiddle());
+		list.printList();
+	}
+}
