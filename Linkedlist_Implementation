@@ -171,16 +171,20 @@ public void reverse() {
   
   11.Checking the loop is a loop or not...
   
-  public static boolean checkLoop(Node head){
-	      HashSet<Node> s = new HashSet<Node>();
-	      while (head != null) {
-	         if (s.contains(head))
-	            return true;
-	         s.add(head);
-	         head = head.next;
-	      }
-	      return false;
-	   }
+  public boolean checkLoop() {
+		if(head == null) {
+			return false;
+		}
+		HashSet<Node> set = new HashSet<>();
+		while(head != null) {
+			if(set.contains(head)) {
+				return true;
+			}
+			set.add(head);
+			head = head.next;
+		}
+		return false;
+	}
 	   
 	   
   12.Searching a particular node from the linkedlist....
@@ -232,10 +236,10 @@ public void reverse() {
 		System.out.println(list.getMiddle());
 		
 		list.head.next.next.next.next = list.head;
-		if(checkLoop(head)) {
-			System.out.println("Loop found....");
+		if(list.checkLoop()) {
+			System.out.println("Loop found...");
 		}else {
-			System.out.println("Loop not found....");
+			System.out.println("Loop not found...");
 		}
 		list.printList();
 	}
