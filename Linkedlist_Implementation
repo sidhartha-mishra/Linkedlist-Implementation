@@ -168,7 +168,22 @@ public void reverse() {
 		secondLast.next = null;
 	}
   
-  11.Searching a particular node from the linkedlist....
+  
+  11.Checking the loop is a loop or not...
+  
+  public static boolean checkLoop(Node head){
+	      HashSet<Node> s = new HashSet<Node>();
+	      while (head != null) {
+	         if (s.contains(head))
+	            return true;
+	         s.add(head);
+	         head = head.next;
+	      }
+	      return false;
+	   }
+	   
+	   
+  12.Searching a particular node from the linkedlist....
   
   public int search(String data) {
 		int index = 0;
@@ -187,7 +202,7 @@ public void reverse() {
 	}
   
   
-  12. Printing or displaying the all the list of linkedlist...
+  13. Printing or displaying the all the list of linkedlist...
   
   public void printList() {
 		if(head == null) {
@@ -201,19 +216,27 @@ public void reverse() {
 		}
 	}
 	
-13. Here comes the main method...... 	
+14. Here comes the main method...... 	
 	public static void main(String []args) {
 		LL_Implementation list = new LL_Implementation();
 		list.addNode(0,"Sidhartha");
 		list.addNode(1,"Dipika");
 		list.addNode(2,"Sidhartha");
 //		System.out.println(list.getSize());
+
 //		if(list.isPallindrome()) {
 //			System.out.println("The list is a pallindrome...");
 //		}else {
 //			System.out.println("The list is not a pallindrome...");
 //		}
 		System.out.println(list.getMiddle());
+		
+		list.head.next.next.next.next = list.head;
+		if(checkLoop(head)) {
+			System.out.println("Loop found....");
+		}else {
+			System.out.println("Loop not found....");
+		}
 		list.printList();
 	}
 }
