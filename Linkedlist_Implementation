@@ -205,6 +205,25 @@ public void reverse() {
 		return index;
 	}
   
+  13. Removing duplicate from a sorted list...
+  
+  public Node removeDuplicate() {
+	   if(head == null) {
+			System.out.println("There is nothing to remove...");
+			return null;
+		}
+	   Node currNode = head;
+	   while(currNode != null  &&  currNode.next != null) {
+		   if(currNode.data == currNode.next.data) {
+			   
+			   currNode.next = currNode.next.next;
+		   }
+		   else {
+			   currNode = currNode.next;     
+		   }
+	   }
+	return currNode;
+   }
   
   13. Printing or displaying the all the list of linkedlist...
   
