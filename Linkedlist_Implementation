@@ -94,7 +94,7 @@ public void reverse() {
 		currNode = head;
 		while(currNode != null) {
 			String element = stack.pop();
-			if(currNode != null){
+			if(element == currNode.data){
 				flag = true;
 		    currNode = currNode.next;
 			}else {
@@ -104,6 +104,7 @@ public void reverse() {
 		}
 		return flag;
 	}
+	
  
  7. Getting the length of the linkedlist...
  
