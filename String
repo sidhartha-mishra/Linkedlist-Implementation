@@ -1,0 +1,78 @@
+1. Check your String is an anagram or not...
+
+public class Anagram{
+	public static void main(String []args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the first String...");
+		String str1 = sc.nextLine();
+		
+		System.out.println("Enter the second String...");
+		String str2 = sc.nextLine();
+		
+		sortStr(str1);
+		sortStr(str2);
+		
+		removeSpace(str1);
+		removeSpace(str2);
+		
+		toLower(str1);
+		toLower(str2);
+		
+		boolean b = compare(str1, str2);
+		if(b == true) {
+			System.out.println("The string is an anagram...");
+		}else {
+			System.out.println("The string is not an anagram...");
+		}
+	}
+	
+	
+   public static boolean compare(String str1, String str2) {
+	   char[] arr1 = str1.toCharArray();
+	   char[] arr2 = str2.toCharArray();
+	   for(int i=0; i<str1.length(); i++) {
+		   if(arr1[i] == arr2[i]) {
+			   return true;
+		   }
+	   }
+	   return false;
+   }
+
+	public static String sortStr(String str) {
+		char []arr = str.toCharArray();
+		for(int i=0; i<str.length(); i++) {
+			for(int j=i+1; j<str.length(); j++) {
+				if(arr[i] >= arr[j]) {
+					char temp = arr[i];
+					arr[i] = arr[j];
+					arr[j] = temp;
+				}
+			}
+		}
+		return new String(arr);
+	}
+	
+	public static String removeSpace(String str) {
+		char []arr = str.toCharArray();
+		String newStr = "";
+		for(int i=0; i<str.length(); i++) {
+			if(str.charAt(i) != ' ') {
+				newStr+=arr[i];
+			}
+		}
+		return newStr;
+	}
+	
+	public static String toLower(String str) {
+		char []arr = str.toCharArray();
+		String newStr ="";
+		for(int i=0; i<str.length(); i++) {
+			char aChar = str.charAt(i);
+			if(65<= aChar && aChar <=90 ) {
+				aChar = (char)( (aChar+32) );
+			}
+			newStr+= aChar;
+		}
+		return newStr;
+	}
+}
