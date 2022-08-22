@@ -186,8 +186,35 @@ public void reverse() {
 		return false;
 	}
 	   
+  12. Delete the nodes which have the data lessthan the next consecutive node....
+  Given Linked List :
+ 1 → 2 → 5 → 4 → 3 → 6 → 7 → 8 → NULL
+ After Delete Linked List :
+ 5 → 4 → 8 → NULL
+  
+  public Node delLessNodes() {
+		if(head == null) {
+			return null;
+		}
+		Node currNode = head;
+		Node prevNode = null;
+		while(currNode != null && currNode.next != null) {
+			if(currNode.next.data > currNode.data) {
+				currNode = currNode.next;	
+				if(prevNode == null) {
+					head = currNode;
+				}else {
+					prevNode.next = currNode;
+				}
+			}else {
+				prevNode = currNode;
+				currNode = currNode.next;
+			}
+		}
+		return head;
+	}
 	   
-  12.Searching a particular node from the linkedlist....
+  13.Searching a particular node from the linkedlist....
   
   public int search(String data) {
 		int index = 0;
@@ -205,7 +232,7 @@ public void reverse() {
 		return index;
 	}
   
-  13. Removing duplicate from a sorted list...
+  14. Removing duplicate from a sorted list...
   
   public Node removeDuplicate() {
 	   if(head == null) {
@@ -225,7 +252,7 @@ public void reverse() {
 	return currNode;
    }
   
-  13. Printing or displaying the all the list of linkedlist...
+  15. Printing or displaying the all the list of linkedlist...
   
   public void printList() {
 		if(head == null) {
@@ -239,7 +266,7 @@ public void reverse() {
 		}
 	}
 	
-14. Here comes the main method...... 	
+16. Here comes the main method...... 	
 	public static void main(String []args) {
 		LL_Implementation list = new LL_Implementation();
 		list.addNode(0,"Sidhartha");
